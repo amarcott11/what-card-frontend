@@ -3,14 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "e2e": "node test/e2e/runner.js",
+    "lint": "vue-cli-service lint",
+    "lint-fix": "vue-cli-service lint --fix",
+    "serve": "vue-cli-service serve --open",
+    "dev": "npm run serve"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^4.0.0",
+    "chartist": "^0.11.0",
     "core-js": "^3.6.5",
+    "es6-promise": "^4.2.4",
     "vue": "^2.6.11",
+    "vue-clickaway": "^2.1.0",
+    "vue-notifyjs": "^0.3.0",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
   },
@@ -28,6 +36,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^6.0.7",
     "vue-template-compiler": "^2.6.11"
   }
 }

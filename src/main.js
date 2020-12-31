@@ -4,7 +4,12 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
+import PaperDashboard from "./plugins/paperDashboard";
+import "vue-notifyjs/themes/default.css";
+
 Vue.config.productionTip = false
+
+Vue.use(PaperDashboard);
 
 new Vue({
   router,
