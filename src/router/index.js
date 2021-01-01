@@ -3,16 +3,16 @@ import VueRouter from 'vue-router'
 
 import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 // GeneralViews
-import NotFound from "@/pages/NotFoundPage.vue";
+import NotFound from "@/views/NotFoundPage.vue";
 
 // Admin pages
-import Home from "@/pages/Home.vue";
-import UserProfile from "@/pages/UserProfile.vue";
-import Notifications from "@/pages/Notifications.vue";
-import Icons from "@/pages/Icons.vue";
-import Typography from "@/pages/Typography.vue";
-import CardsList from "@/pages/CardsList.vue";
-import Login from "@/pages/Login.vue";
+import Home from "@/views/Home.vue";
+import UserProfile from "@/views/UserProfile.vue";
+import Notifications from "@/views/Notifications.vue";
+import Icons from "@/views/Icons.vue";
+import Typography from "@/views/Typography.vue";
+import CardsList from "@/views/CardsList.vue";
+import Login from "@/views/Login.vue";
 
 Vue.use(VueRouter)
 
