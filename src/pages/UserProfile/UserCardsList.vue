@@ -32,7 +32,7 @@
 export default {
   data() {
     return {
-      title: "Team members",
+      title: "Credit Cards in My Wallet",
       members: [
         {
           image: require("@/assets/img/faces/face-0.jpg"),

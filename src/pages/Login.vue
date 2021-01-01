@@ -1,0 +1,41 @@
+<template>
+    <div class="row">
+      <div class="col-12">
+        <card>
+          <h1>Login</h1>
+          <form @submit.prevent="login">
+            <input type="email" name="email" v-model="email">
+            <input type="password" name="password" v-model="password">
+            <button type="submit">Login</button>
+          </form>
+        </card>
+      </div>
+    </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      email: '',
+      password: ''
+    }
+  },
+
+  methods: {
+    login () {
+      this.$store
+        .dispatch('login', {
+          email: this.email,
+          password: this.password
+        })
+        .then(() => {
+          this.$router.push({ name: 'UserProfile' })
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
+  }
+}
+</script>

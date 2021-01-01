@@ -10,9 +10,8 @@ import Dashboard from "@/pages/Dashboard.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import Notifications from "@/pages/Notifications.vue";
 import Icons from "@/pages/Icons.vue";
-import Maps from "@/pages/Maps.vue";
 import Typography from "@/pages/Typography.vue";
-import TableList from "@/pages/TableList.vue";
+import CardsList from "@/pages/CardsList.vue";
 
 Vue.use(VueRouter)
 
@@ -28,8 +27,11 @@ const routes = [
         component: Dashboard
       },
       {
-        path: "stats",
-        name: "stats",
+        path: "profile",
+        name: "profile",
+        meta: {
+          auth: true
+        },
         component: UserProfile
       },
       {
@@ -43,34 +45,18 @@ const routes = [
         component: Icons
       },
       {
-        path: "maps",
-        name: "maps",
-        component: Maps
-      },
-      {
         path: "typography",
         name: "typography",
         component: Typography
       },
       {
-        path: "table-list",
-        name: "table-list",
-        component: TableList
-      },
-      {
-        path: '/about',
-        name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        meta: {
-          auth: true
-        },
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+        path: "cards-list",
+        name: "cards list",
+        component: CardsList
       },
       {
         path: '/login',
-        name: 'Login',
+        name: 'login',
         component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
       }
     ]
