@@ -9,58 +9,46 @@
           </div>
         </card>
       </div>
-
-      <div class="col-12">
-        <card class="card-plain">
-          <div class="table-full-width table-responsive">
-            <paper-table type="hover" :title="table2.title" :sub-title="table2.subTitle" :data="table2.data"
-                         :columns="table2.columns">
-
-            </paper-table>
-          </div>
-        </card>
-      </div>
-
     </div>
 </template>
 <script>
 import { PaperTable } from "@/components";
-const tableColumns = ["Id", "Name", "Salary", "Country", "City"];
+const tableColumns = ["", "Card", "Bank", "Type", "Category", "Business/Personal"];
 const tableData = [
   {
     id: 1,
-    name: "Dakota Rice",
-    salary: "$36.738",
-    country: "Niger",
-    city: "Oud-Turnhout"
+    card: "Sapphire Preferred",
+    bank: "Chase",
+    type: "",
+    category: "Oud-Turnhout"
   },
   {
     id: 2,
-    name: "Minerva Hooper",
-    salary: "$23,789",
-    country: "Curaçao",
-    city: "Sinaai-Waas"
+    card: "Minerva Hooper",
+    bank: "$23,789",
+    type: "Curaçao",
+    category: "Sinaai-Waas"
   },
   {
     id: 3,
-    name: "Sage Rodriguez",
-    salary: "$56,142",
-    country: "Netherlands",
-    city: "Baileux"
+    card: "Sage Rodriguez",
+    bank: "$56,142",
+    type: "Netherlands",
+    category: "Baileux"
   },
   {
     id: 4,
-    name: "Philip Chaney",
-    salary: "$38,735",
-    country: "Korea, South",
-    city: "Overland Park"
+    card: "Philip Chaney",
+    bank: "$38,735",
+    type: "Korea, South",
+    category: "Overland Park"
   },
   {
     id: 5,
-    name: "Doris Greene",
-    salary: "$63,542",
-    country: "Malawi",
-    city: "Feldkirchen in Kärnten"
+    card: "Doris Greene",
+    bank: "$63,542",
+    type: "Malawi",
+    category: "Feldkirchen in Kärnten"
   }
 ];
 
@@ -71,14 +59,8 @@ export default {
   data() {
     return {
       table1: {
-        title: "Stripped Table",
-        subTitle: "Here is a subtitle for this table",
-        columns: [...tableColumns],
-        data: [...tableData]
-      },
-      table2: {
-        title: "Table on Plain Background",
-        subTitle: "Here is a subtitle for this table",
+        title: "All Credit Cards",
+        subTitle: "Full list of business and personal credit cards.",
         columns: [...tableColumns],
         data: [...tableData]
       }

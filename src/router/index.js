@@ -6,12 +6,13 @@ import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 import NotFound from "@/pages/NotFoundPage.vue";
 
 // Admin pages
-import Dashboard from "@/pages/Dashboard.vue";
+import Home from "@/pages/Home.vue";
 import UserProfile from "@/pages/UserProfile.vue";
 import Notifications from "@/pages/Notifications.vue";
 import Icons from "@/pages/Icons.vue";
 import Typography from "@/pages/Typography.vue";
 import CardsList from "@/pages/CardsList.vue";
+import Login from "@/pages/Login.vue";
 
 Vue.use(VueRouter)
 
@@ -19,12 +20,12 @@ const routes = [
   {
     path: "/",
     component: DashboardLayout,
-    redirect: "/dashboard",
+    redirect: "/home",
     children: [
       {
-        path: "dashboard",
-        name: "dashboard",
-        component: Dashboard
+        path: "home",
+        name: "home",
+        component: Home
       },
       {
         path: "profile",
@@ -57,7 +58,7 @@ const routes = [
       {
         path: '/login',
         name: 'login',
-        component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
+        component: Login
       }
     ]
   },

@@ -30,7 +30,7 @@ export default {
           password: this.password
         })
         .then(() => {
-          this.$router.push({ name: 'UserProfile' })
+          this.$router.push({ name: 'profile' })
         })
         .catch(err => {
           console.log(err)

@@ -1,14 +1,19 @@
 <template>
   <div class="wrapper">
     <side-bar>
-      <template slot="links">
-        <sidebar-link to="/dashboard" name="Dashboard" icon="ti-panel"/>
+      <template v-if="isLogged" slot="links">
+        <sidebar-link to="/home" name="Home" icon="ti-panel"/>
         <sidebar-link to="/profile" name="User Profile" icon="ti-user"/>
         <sidebar-link to="/cards-list" name="Cards List" icon="ti-view-list-alt"/>
         <sidebar-link to="/typography" name="Typography" icon="ti-text"/>
         <sidebar-link to="/icons" name="Icons" icon="ti-pencil-alt2"/>
         <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
+        <button type="button" @click="logout()">Logout</button>
+      </template>
+      <template v-else slot="links">
+        <sidebar-link to="/home" name="Home" icon="ti-panel"/>
         <sidebar-link to="/login" name="Login" icon="ti-user"/>
+        <sidebar-link to="/cards-list" name="Cards List" icon="ti-view-list-alt"/>
       </template>
       <mobile-menu>
         <li class="nav-item">
@@ -54,18 +59,28 @@ import TopNavbar from "./TopNavbar.vue";
 import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./Content.vue";
 import MobileMenu from "./MobileMenu";
+import { mapGetters } from 'vuex'
+
 export default {
   components: {
     TopNavbar,
     ContentFooter,
     DashboardContent,
-    MobileMenu
+    MobileMenu,
+  },
+  computed: {
+    ...mapGetters([
+      'isLogged'
+    ])
   },
   methods: {
     toggleSidebar() {
       if (this.$sidebar.showSidebar) {
         this.$sidebar.displaySidebar(false);
       }
+    },
+    logout () {
+      this.$store.dispatch('logout')
     }
   }
 };
