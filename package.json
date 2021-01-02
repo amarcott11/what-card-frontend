@@ -8,7 +8,8 @@
     "lint": "vue-cli-service lint",
     "lint-fix": "vue-cli-service lint --fix",
     "serve": "vue-cli-service serve --open",
-    "dev": "npm run serve"
+    "dev": "npm run serve",
+    "deploy": "aws --region us-east-2 --profile vue-deploy s3 sync ./dist s3://whatcardfor.me --delete"
   },
   "dependencies": {
     "axios": "^0.21.1",
