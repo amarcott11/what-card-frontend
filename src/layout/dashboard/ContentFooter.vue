@@ -2,15 +2,10 @@
   <footer class="footer">
     <div class="container-fluid d-flex flex-wrap justify-content-between">
       <nav>
-        <ul>
-          <li>
-            <router-link :to="{path:'/dashboard'}">Dashboard</router-link>
-          </li>
-        </ul>
+        <div class="copyright d-flex flex-wrap">
+          Copyright &copy; 2021 Adam Marcott. All Rights Reserved.
+        </div>
       </nav>
-      <div class="copyright d-flex flex-wrap">
-        Copyright &copy; 2021 Adam Marcott. All Rights Reserved.
-      </div>
     </div>
   </footer>
 </template>

@@ -6,26 +6,24 @@
     <div>
       <div class="author">
         <img class="avatar border-white" src="@/assets/img/faces/face-2.jpg" alt="...">
-        <h4 class="title">Chet Faker
+        <h4 class="title">{{user.user.name}}
           <br>
           <a href="#">
-            <small>@chetfaker</small>
+            <small>{{user.user.email}}</small>
           </a>
         </h4>
       </div>
       <p class="description text-center">
-        "I like the way you work it
-        <br> No diggity
-        <br> I wanna bag it up"
+        Created account January 2021
       </p>
     </div>
     <hr>
     <div class="text-center">
       <div class="row">
-        <div v-for="(info, index) in details" :key="index" :class="getClasses(index)">
-          <h5>{{info.title}}
+        <div class="col-md-12">
+          <h5>54
             <br>
-            <small>{{info.subTitle}}</small>
+            <small>Cards in My Wallet</small>
           </h5>
         </div>
       </div>
@@ -33,6 +31,7 @@
   </card>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   data() {
     return {
@@ -51,6 +50,11 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    ...mapState({
+        user: 'user'
+    })
   },
   methods: {
     getClasses(index) {

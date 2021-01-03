@@ -2,43 +2,24 @@
   <div class="wrapper">
     <side-bar>
       <template v-if="isLogged" slot="links">
-        <sidebar-link to="/home" name="Home" icon="ti-panel"/>
-        <sidebar-link to="/profile" name="User Profile" icon="ti-user"/>
+        <sidebar-link to="/home" name="Home" icon="ti-home"/>
         <sidebar-link to="/cards-list" name="Cards List" icon="ti-view-list-alt"/>
-        <sidebar-link to="/typography" name="Typography" icon="ti-text"/>
-        <sidebar-link to="/icons" name="Icons" icon="ti-pencil-alt2"/>
-        <sidebar-link to="/notifications" name="Notifications" icon="ti-bell"/>
-        <button type="button" @click="logout()">Logout</button>
+        <sidebar-link to="/profile" v-bind:name="user.user.name" icon="ti-user"/>
+        <div class="col-md-12">
+          <p-button type="danger"
+                    block
+                    @click.native.prevent="logout">
+            Logout
+          </p-button>
+        </div>
       </template>
       <template v-else slot="links">
-        <sidebar-link to="/home" name="Home" icon="ti-panel"/>
-        <sidebar-link to="/login" name="Login" icon="ti-user"/>
+        <sidebar-link to="/home" name="Home" icon="ti-home"/>
         <sidebar-link to="/cards-list" name="Cards List" icon="ti-view-list-alt"/>
+        <sidebar-link to="/login" name="Login" icon="ti-user"/>
+        <sidebar-link to="/register" name="Create Account" icon="ti-plus"/>
       </template>
       <mobile-menu>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="ti-panel"></i>
-            <p>Stats</p>
-          </a>
-        </li>
-        <drop-down class="nav-item"
-                   title="5 Notifications"
-                   title-classes="nav-link"
-                   icon="ti-bell">
-          <a class="dropdown-item">Notification 1</a>
-          <a class="dropdown-item">Notification 2</a>
-          <a class="dropdown-item">Notification 3</a>
-          <a class="dropdown-item">Notification 4</a>
-          <a class="dropdown-item">Another notification</a>
-        </drop-down>
-        <li class="nav-item">
-          <a class="nav-link">
-            <i class="ti-settings"></i>
-            <p>Settings</p>
-          </a>
-        </li>
-        <li class="divider"></li>
       </mobile-menu>
     </side-bar>
     <div class="main-panel">
@@ -59,7 +40,7 @@ import TopNavbar from "./TopNavbar.vue";
 import ContentFooter from "./ContentFooter.vue";
 import DashboardContent from "./Content.vue";
 import MobileMenu from "./MobileMenu";
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   components: {
@@ -71,7 +52,10 @@ export default {
   computed: {
     ...mapGetters([
       'isLogged'
-    ])
+    ]),
+    ...mapState({
+    user: 'user'
+    })
   },
   methods: {
     toggleSidebar() {

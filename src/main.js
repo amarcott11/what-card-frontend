@@ -9,6 +9,8 @@ import "vue-notifyjs/themes/default.css";
 
 Vue.config.productionTip = false
 
+var global_axios_api = 'http://127.0.0.1:8000/api'
+
 Vue.use(PaperDashboard);
 
 new Vue({

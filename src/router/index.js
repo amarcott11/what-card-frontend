@@ -13,6 +13,7 @@ import Icons from "@/views/Icons.vue";
 import Typography from "@/views/Typography.vue";
 import CardsList from "@/views/CardsList.vue";
 import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: Login
+      },
+      {
+        path: '/register',
+        name: 'register',
+        component: Register
       }
     ]
   },

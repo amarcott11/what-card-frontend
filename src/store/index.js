@@ -4,7 +4,8 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-axios.defaults.baseURL = 'https://api.whatcardfor.me/api'
+//axios.defaults.baseURL = 'https://api.whatcardfor.me/api'
+axios.defaults.baseURL = 'http://127.0.0.1:8000/api'
 
 export default new Vuex.Store({
   state: {
@@ -35,7 +36,12 @@ export default new Vuex.Store({
 
     logout ({ commit }) {
       commit('clearUserData')
-    }
+    },
+
+    register ({ commit }, credentials) {
+      return axios
+        .post('/register', credentials)
+    },
   },
 
   getters: {

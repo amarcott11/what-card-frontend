@@ -13,44 +13,8 @@
 </template>
 <script>
 import { PaperTable } from "@/components";
-const tableColumns = ["", "Card", "Bank", "Type", "Category", "Business/Personal"];
-const tableData = [
-  {
-    id: 1,
-    card: "Sapphire Preferred",
-    bank: "Chase",
-    type: "",
-    category: "Oud-Turnhout"
-  },
-  {
-    id: 2,
-    card: "Minerva Hooper",
-    bank: "$23,789",
-    type: "Curaçao",
-    category: "Sinaai-Waas"
-  },
-  {
-    id: 3,
-    card: "Sage Rodriguez",
-    bank: "$56,142",
-    type: "Netherlands",
-    category: "Baileux"
-  },
-  {
-    id: 4,
-    card: "Philip Chaney",
-    bank: "$38,735",
-    type: "Korea, South",
-    category: "Overland Park"
-  },
-  {
-    id: 5,
-    card: "Doris Greene",
-    bank: "$63,542",
-    type: "Malawi",
-    category: "Feldkirchen in Kärnten"
-  }
-];
+import axios from 'axios';
+const tableColumns = ["id", "name"];
 
 export default {
   components: {
@@ -62,9 +26,15 @@ export default {
         title: "All Credit Cards",
         subTitle: "Full list of business and personal credit cards.",
         columns: [...tableColumns],
-        data: [...tableData]
+        data: null
       }
     };
+  },
+  mounted() {
+    axios.get("http://127.0.0.1:8000/api/bank")
+      .then(response => {
+        this.table1.data = response.data;
+      }).catch(error => {console.log(error);});
   }
 };
 </script>
