@@ -72,6 +72,9 @@ export default {
           email: this.email,
           password: this.password
         })
+        .then(() => {
+          this.$router.push({ name: "profile" });
+        })
         .catch(err => {
           console.log(err)
         })
