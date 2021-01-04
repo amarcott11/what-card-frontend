@@ -8,9 +8,6 @@ import NotFound from "@/views/NotFoundPage.vue";
 // Admin pages
 import Home from "@/views/Home.vue";
 import UserProfile from "@/views/UserProfile.vue";
-import Notifications from "@/views/Notifications.vue";
-import Icons from "@/views/Icons.vue";
-import Typography from "@/views/Typography.vue";
 import CardsList from "@/views/CardsList.vue";
 import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
@@ -35,21 +32,6 @@ const routes = [
           auth: true
         },
         component: UserProfile
-      },
-      {
-        path: "notifications",
-        name: "notifications",
-        component: Notifications
-      },
-      {
-        path: "icons",
-        name: "icons",
-        component: Icons
-      },
-      {
-        path: "typography",
-        name: "typography",
-        component: Typography
       },
       {
         path: "cards-list",

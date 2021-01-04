@@ -3,18 +3,16 @@
     <div>
       <ul class="list-unstyled team-members">
         <li>
-          <div class="row" v-for="member in members" :key="member.name">
+          <div class="row" v-for="item in members" :key="item.name">
             <div class="col-3">
               <div class="avatar">
-                <img :src="member.image" alt="Circle Image" class="rounded img-fluid">
+                <img :src="item.image" alt="Circle Image" class="rounded img-fluid">
               </div>
             </div>
             <div class="col-6">
-              {{member.name}}
+              {{item.name}}
               <br>
-              <span :class="getStatusClass(member.status)">
-                <small>{{member.status}}</small>
-              </span>
+                <small>{{item.bank}}</small>
             </div>
 
             <div class="col-3">
@@ -26,6 +24,18 @@
         </li>
       </ul>
     </div>
+    <div>
+      <form @submit.prevent>
+        <div class="text-center">
+          <p-button type="info"
+                    round
+                    @click.native.prevent="saveCards">
+            Save Changes
+          </p-button>
+        </div>
+        <div class="clearfix"></div>
+      </form>
+    </div>
   </card>
 </template>
 <script>
@@ -36,34 +46,25 @@ export default {
       members: [
         {
           image: require("@/assets/img/faces/face-0.jpg"),
-          name: "Dj Khaled",
-          status: "Offline"
+          name: "AAdvantage Aviator Business",
+          bank: "Barclays"
         },
         {
           image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Creative Tim",
-          status: "Available"
+          name: "Ink Business Plus",
+          bank: "Chase"
         },
         {
           image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Flume",
-          status: "Busy"
+          name: "Sapphire Preferred",
+          bank: "Chase"
         }
       ]
     };
   },
   methods: {
-    getStatusClass(status) {
-      switch (status) {
-        case "Offline":
-          return "text-muted";
-        case "Available":
-          return "text-success";
-        case "Busy":
-          return "text-danger";
-        default:
-          return "text-success";
-      }
+    saveCards() {
+      alert("Your data: " + JSON.stringify(this.user));
     }
   }
 };

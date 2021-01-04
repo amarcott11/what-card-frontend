@@ -5,7 +5,7 @@
     </div>
     <div>
       <div class="author">
-        <img class="avatar border-white" src="@/assets/img/faces/face-2.jpg" alt="...">
+        <img class="avatar border-white" src="@/assets/img/faces/face-0.jpg" alt="...">
         <h4 class="title">{{user.user.name}}
           <br>
           <a href="#">
@@ -14,16 +14,16 @@
         </h4>
       </div>
       <p class="description text-center">
-        Created account January 2021
+        Member since {{formatDate(user.user.created_at)}}
       </p>
     </div>
     <hr>
     <div class="text-center">
       <div class="row">
         <div class="col-md-12">
-          <h5>54
+          <h5>{{details.title}}
             <br>
-            <small>Cards in My Wallet</small>
+            <small>{{details.subTitle}}</small>
           </h5>
         </div>
       </div>
@@ -32,23 +32,15 @@
 </template>
 <script>
 import { mapState } from 'vuex'
+import moment from 'moment'
 export default {
   data() {
     return {
-      details: [
+      details:
         {
           title: "12",
-          subTitle: "Files"
-        },
-        {
-          title: "2GB",
-          subTitle: "Used"
-        },
-        {
-          title: "24,6$",
-          subTitle: "Spent"
+          subTitle: "Cards in My Wallet"
         }
-      ]
     };
   },
   computed: {
@@ -66,7 +58,12 @@ export default {
       } else {
         return "col-lg-3";
       }
-    }
+    },
+    formatDate(value) {
+      if (value) {
+        return moment(String(value)).format('MM/DD/YYYY')
+      }
+    },
   }
 };
 </script>
