@@ -15,9 +15,6 @@
                           v-model="email"
                           @keyup.enter.native="login">
                 </fg-input>
-                <span class="text-danger" v-if="errors.email">
-                  {{ errors.email[0] }}
-                </span>
               </div>
               <div class="form-group">
                 <label for="password">Password:</label>
@@ -26,12 +23,6 @@
                           v-model="password"
                           @keyup.enter.native="login">
                 </fg-input>
-                <span class="text-danger" v-if="errors.password">
-                  {{ errors.password[0] }}
-                </span>
-                <span class="text-danger" v-if="incorrect">
-                  {{ 'Incorrect email or password combination.' }}
-                </span>
               </div>
               <p-button type="info"
                         block
@@ -66,9 +57,7 @@ export default {
   data () {
     return {
       email: '',
-      password: '',
-      incorrect: false,
-      errors: []
+      password: ''
     }
   },
 
@@ -84,17 +73,10 @@ export default {
           password: this.password
         })
         .then(() => {
-          this.$router.push({ name: "home" });
+          this.$router.push({ name: "profile" });
         })
-        .catch(error => {
-          if (error.response.status === 404) {
-            this.incorrect = true;
-            this.errors = []
-          }
-          if (error.response.status === 422) {
-            this.errors = error.response.data.errors;
-            this.incorrect = false;
-          }
+        .catch(err => {
+          console.log(err)
         })
     },
     create_account () {

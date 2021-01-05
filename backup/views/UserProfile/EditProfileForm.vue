@@ -3,19 +3,24 @@
     <div>
       <form @submit.prevent>
         <div class="text-center">
-          <p>What rewards are you looking for?</p>
+          <p>Are you looking to earn points/miles?</p>
+          <toggle-button :value="true"
+               :labels="{checked: 'Yes', unchecked: 'No'}"/>
         </div>
         <div class="text-center">
-          <p>What cards do you prefer?</p>
+          <p>Are you looking to earn cashback?</p>
+          <toggle-button :value="true"
+               :labels="{checked: 'Yes', unchecked: 'No'}"/>
         </div>
         <div class="text-center">
-          <p>What is your credit score?</p>
-        </div>
-        <div class="text-center">
-          <p>How many personal credit cards have you opened in the last 2 years?</p>
+          <p>Are you looking for business credit cards?</p>
+          <toggle-button :value="true"
+               :labels="{checked: 'Yes', unchecked: 'No'}"/>
         </div>
         <div class="text-center">
           <p>Are cards with annual fees acceptable to you?</p>
+          <toggle-button :value="true"
+               :labels="{checked: 'Yes', unchecked: 'No'}"/>
         </div>
         <div class="text-center">
           <p-button type="info"

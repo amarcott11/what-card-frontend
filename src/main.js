@@ -9,7 +9,6 @@ import "vue-notifyjs/themes/default.css";
 
 Vue.config.productionTip = false
 
-
 Vue.use(PaperDashboard);
 
 new Vue({

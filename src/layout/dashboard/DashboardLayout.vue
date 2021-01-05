@@ -3,7 +3,6 @@
     <side-bar>
       <template v-if="isLogged" slot="links">
         <sidebar-link to="/home" name="Home" icon="ti-home"/>
-        <sidebar-link to="/cards-list" name="Cards List" icon="ti-view-list-alt"/>
         <sidebar-link to="/profile" v-bind:name="user.user.name" icon="ti-user"/>
         <div class="col-md-12">
           <p-button type="danger"
@@ -15,7 +14,6 @@
       </template>
       <template v-else slot="links">
         <sidebar-link to="/home" name="Home" icon="ti-home"/>
-        <sidebar-link to="/cards-list" name="Cards List" icon="ti-view-list-alt"/>
         <sidebar-link to="/login" name="Login" icon="ti-user"/>
         <sidebar-link to="/register" name="Create Account" icon="ti-plus"/>
       </template>

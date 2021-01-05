@@ -1,18 +1,21 @@
 <template>
   <card class="card" :title="title">
-    <div class="mx-auto">
+    <div>
       <ul class="list-unstyled team-members">
         <li>
-          <div class="row mx-auto" v-for="item in data" :key="item.name">
-            <div class="col-2">
-                <img :src="require('../../assets/img/card_img/' + item.img_path)" alt="Circle Image" class="rounded img-fluid" style="max-width:50px">
+          <div class="row" v-for="item in members" :key="item.name">
+            <div class="col-3">
+              <div class="avatar">
+                <img :src="item.image" alt="Circle Image" class="rounded img-fluid">
+              </div>
             </div>
             <div class="col-6">
               {{item.name}}
               <br>
-                <small>{{item.bank.name}}</small>
+                <small>{{item.bank}}</small>
             </div>
-            <div class="col-1">
+
+            <div class="col-3">
               <p-button type="success" outline icon>
                 <i class="fa fa-envelope"></i>
               </p-button>
@@ -36,13 +39,10 @@
   </card>
 </template>
 <script>
-import axios from 'axios';
-
 export default {
   data() {
     return {
       title: "Credit Cards in My Wallet",
-      data: null,
       members: [
         {
           image: require("@/assets/img/faces/face-0.jpg"),
@@ -66,12 +66,6 @@ export default {
     saveCards() {
       alert("Your data: " + JSON.stringify(this.user));
     }
-  },
-  mounted() {
-    axios.get("https://api.whatcardfor.me/api/cards")
-      .then(response => {
-        this.data = response.data.data;
-      }).catch(error => {console.log(error);});
   }
 };
 </script>

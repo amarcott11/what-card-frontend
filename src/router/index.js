@@ -5,10 +5,9 @@ import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 // GeneralViews
 import NotFound from "@/views/NotFoundPage.vue";
 
-// Admin pages
+// Main pages
 import Home from "@/views/Home.vue";
 import UserProfile from "@/views/UserProfile.vue";
-import CardsList from "@/views/CardsList.vue";
 import Login from "@/views/Login.vue";
 import Register from "@/views/Register.vue";
 
@@ -32,11 +31,6 @@ const routes = [
           auth: true
         },
         component: UserProfile
-      },
-      {
-        path: "cards-list",
-        name: "cards list",
-        component: CardsList
       },
       {
         path: '/login',
