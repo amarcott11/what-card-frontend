@@ -18,6 +18,7 @@
     "core-js": "^3.6.5",
     "es6-promise": "^4.2.4",
     "moment": "^2.29.1",
+    "survey-vue": "^1.8.23",
     "vue": "^2.6.11",
     "vue-carousel": "^0.18.0",
     "vue-clickaway": "^2.1.0",

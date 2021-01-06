@@ -1,7 +1,7 @@
 import FormGroupInput from "./Inputs/formGroupInput.vue";
 
 import DropDown from "./Dropdown.vue";
-import Questionaire from "./Questionaire.vue";
+import Questionnaire from "./Questionnaire.vue";
 import CardSuggestions from "./CardSuggestions.vue";
 import Button from "./Button";
 
@@ -14,7 +14,7 @@ let components = {
   Card,
   DropDown,
   SidebarPlugin,
-  Questionaire,
+  Questionnaire,
   CardSuggestions
 };
 
@@ -26,6 +26,6 @@ export {
   DropDown,
   Button,
   SidebarPlugin,
-  Questionaire,
+  Questionnaire,
   CardSuggestions
 };

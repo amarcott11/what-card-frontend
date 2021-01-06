@@ -6,9 +6,9 @@
         </user-info>
       </div>
       <div class="col-xl-8 col-lg-7 col-md-6">
-        <questionaire>
+        <questionnaire>
 
-        </questionaire>
+        </questionnaire>
         <user-cards-list>
 
         </user-cards-list>
@@ -16,12 +16,12 @@
     </div>
 </template>
 <script>
-import Questionaire from "@/components/Questionaire.vue";
+import Questionnaire from "@/components/Questionnaire.vue";
 import UserCardsList from "./UserProfile/UserCardsList.vue";
 import UserInfo from "./UserProfile/UserInfo.vue";
 export default {
   components: {
-    Questionaire,
+    Questionnaire,
     UserInfo,
     UserCardsList
   }

@@ -3,8 +3,8 @@
     <!--Unregistered users fill out a questionaire to get targeted results-->
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <questionaire v-if="!isLogged">
-        </questionaire>
+        <questionnaire v-if="!isLogged">
+        </questionnaire>
       </div>
     </div>
     <div class="row">
@@ -16,11 +16,11 @@
   </div>
 </template>
 <script>
-import { Questionaire, CardSuggestions } from "@/components/index";
+import { Questionnaire, CardSuggestions } from "@/components/index";
 import { mapGetters, mapState } from 'vuex'
 export default {
   components: {
-    Questionaire,
+    Questionnaire,
     CardSuggestions
   },
   computed: {

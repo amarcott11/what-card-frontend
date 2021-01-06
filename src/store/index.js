@@ -42,6 +42,15 @@ export default new Vuex.Store({
       return axios
         .post('/register', credentials)
     },
+
+    userattrs ({ commit }, credentials ) {
+      console.log(credentials);
+      return axios
+        .post('/userattrs', credentials)
+        .then(({ data }) => {
+          commit('setUserData', data)
+        })
+    }
   },
 
   getters: {

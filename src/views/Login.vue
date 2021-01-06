@@ -41,7 +41,7 @@
             </form>
             <div class="col-md-12">
               <br>
-              <a target="_blank" href="https://themify.me/">Forgot Password</a>
+              <a target="_blank" href="/password-reset">Forgot Password</a>
             </div>
             <hr/>
             <p-button type="success"
@@ -92,6 +92,10 @@ export default {
             this.errors = []
           }
           if (error.response.status === 422) {
+            this.errors = error.response.data.errors;
+            this.incorrect = false;
+          }
+          if (error.response.status === 500) {
             this.errors = error.response.data.errors;
             this.incorrect = false;
           }

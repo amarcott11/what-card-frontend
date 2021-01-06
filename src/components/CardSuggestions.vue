@@ -53,7 +53,7 @@ export default {
     }
   },
   mounted() {
-    axios.get("http://127.0.0.1:8000/api/cards")
+    axios.get("https://api.whatcardfor.me/api/cards", this.$store.filters)
       .then(response => {
         this.data = response.data.data;
       }).catch(error => {console.log(error);});

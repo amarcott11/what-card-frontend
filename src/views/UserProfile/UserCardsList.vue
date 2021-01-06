@@ -1,37 +1,11 @@
 <template>
   <card class="card" :title="title">
     <div class="mx-auto">
-      <ul class="list-unstyled team-members">
-        <li>
-          <div class="row mx-auto" v-for="item in data" :key="item.name">
-            <div class="col-2">
-                <img :src="require('../../assets/img/card_img/' + item.img_path)" alt="Circle Image" class="rounded img-fluid" style="max-width:50px">
-            </div>
-            <div class="col-6">
-              {{item.name}}
-              <br>
-                <small>{{item.bank.name}}</small>
-            </div>
-            <div class="col-1">
-              <p-button type="success" outline icon>
-                <i class="fa fa-envelope"></i>
-              </p-button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <form @submit.prevent>
-        <div class="text-center">
-          <p-button type="info"
-                    round
-                    @click.native.prevent="saveCards">
-            Save Changes
-          </p-button>
-        </div>
-        <div class="clearfix"></div>
-      </form>
+      <p-button type="info"
+                round
+                @click.native.prevent="saveCards">
+        Set Test Data
+      </p-button>
     </div>
   </card>
 </template>
@@ -43,35 +17,33 @@ export default {
     return {
       title: "Credit Cards in My Wallet",
       data: null,
-      members: [
-        {
-          image: require("@/assets/img/faces/face-0.jpg"),
-          name: "AAdvantage Aviator Business",
-          bank: "Barclays"
-        },
-        {
-          image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Ink Business Plus",
-          bank: "Chase"
-        },
-        {
-          image: require("@/assets/img/faces/face-1.jpg"),
-          name: "Sapphire Preferred",
-          bank: "Chase"
-        }
-      ]
     };
   },
   methods: {
     saveCards() {
-      alert("Your data: " + JSON.stringify(this.user));
-    }
+      this.$store
+        .dispatch('userattrs', {
+          q1: 0,
+          q2: 0,
+          q3: 0,
+          q4: 0,
+          q5: 0
+        })
+        .catch(error => {
+          if (error.response.status === 422) {
+            this.errors = error.response.data.errors;
+          }
+          if (error.response.status === 404) {
+            console.log(error.response.data.errors);
+          }
+        })
   },
   mounted() {
     axios.get("https://api.whatcardfor.me/api/cards")
       .then(response => {
         this.data = response.data.data;
       }).catch(error => {console.log(error);});
+    }
   }
 };
 </script>
