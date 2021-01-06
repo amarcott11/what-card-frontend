@@ -3,8 +3,9 @@
     <!--Unregistered users fill out a questionaire to get targeted results-->
     <div class="row">
       <div class="col-md-8 mx-auto">
-        <questionnaire v-if="!isLogged">
-        </questionnaire>
+        <card v-if="!isLogged">
+          <p><a href="/register">Create an account</a> to get tailored suggestions for credit cards with the best bonuses.</p>
+        </card>
       </div>
     </div>
     <div class="row">

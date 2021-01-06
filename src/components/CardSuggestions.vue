@@ -35,6 +35,7 @@
 <script>
 import axios from 'axios';
 import { Carousel, Slide } from 'vue-carousel';
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'card-suggestions',
@@ -47,13 +48,18 @@ export default {
       data: null,
     };
   },
+  computed: {
+  ...mapState({
+      filters: 'filters'
+    })
+  },
   methods: {
     go_to_link (app_link) {
       window.location.href = app_link;
     }
   },
   mounted() {
-    axios.get("https://api.whatcardfor.me/api/cards", this.$store.filters)
+    axios.get("https://api.whatcardfor.me/api/cards")
       .then(response => {
         this.data = response.data.data;
       }).catch(error => {console.log(error);});

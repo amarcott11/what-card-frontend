@@ -9,7 +9,14 @@ axios.defaults.baseURL = 'https://api.whatcardfor.me/api'
 
 export default new Vuex.Store({
   state: {
-    user: null
+    user: null,
+    filters: {
+      q1: 1,
+      q2: 1,
+      q3: 1,
+      q4: 1,
+      q5: 1
+    }
   },
 
   mutations: {
@@ -41,6 +48,9 @@ export default new Vuex.Store({
     register ({ commit }, credentials) {
       return axios
         .post('/register', credentials)
+        .then(({ data }) => {
+          commit('setUserData', data)
+        })
     },
 
     userattrs ({ commit }, credentials ) {
@@ -54,6 +64,7 @@ export default new Vuex.Store({
   },
 
   getters: {
-    isLogged: state => !!state.user
+    isLogged: state => !!state.user,
+    user: state => state.user
   }
 })
